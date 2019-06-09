@@ -16,3 +16,23 @@
 ##    ('9', ['A', 'B', 'E', 'C'])
 ##
 ##
+
+file = open('tablas/data.csv', 'r').readlines()
+
+
+file = [row[0:-1] for row in file]
+
+
+file = [row.split('\t') for row in file]
+data = file
+
+result = {}
+
+for x in data:
+	result[x[1]] = []
+
+for x in data:
+	result[x[1]].append(x[0])
+
+for i in sorted(result.items()):
+	print i
